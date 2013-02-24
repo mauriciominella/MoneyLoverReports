@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MoneyLoverPCDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="MoneyLoverPCDataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="transactionsSet" EntityType="MoneyLoverPCDataModel.transactions" />
+    <EntitySet Name="categoriesSet" EntityType="MoneyLoverPCDataModel.categories" />
+    <EntitySet Name="usersSet" EntityType="MoneyLoverPCDataModel.users" />
+  </EntityContainer>
+  <EntityType Name="transactions">
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="true" />
+    <Property Type="Decimal" Name="amount" Nullable="false" />
+    <Property Type="Int32" Name="type" Nullable="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" />
+    <Property Type="DateTime" Name="displayed_date" Nullable="false" />
+    <Property Type="Int64" Name="cat_id" Nullable="false" />
+    <Property Type="String" Name="with_person" Nullable="true" />
+    <Property Type="DateTime" Name="remind_date" Nullable="true" />
+    <Property Type="Int32" Name="remind_num" Nullable="false" DefaultValue="0" />
+    <Property Type="String" Name="note" Nullable="true" />
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="Int64" Name="user_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="String" Name="icon" Nullable="false" />
+    <Property Type="Int32" Name="type" Nullable="false" DefaultValue="0" />
+    <Property Type="Int32" Name="group_id" Nullable="false" />
+    <Property Type="Int32" Name="user_id" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="users">
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="String" Name="icon" Nullable="false" />
+  </EntityType>
+</Schema>

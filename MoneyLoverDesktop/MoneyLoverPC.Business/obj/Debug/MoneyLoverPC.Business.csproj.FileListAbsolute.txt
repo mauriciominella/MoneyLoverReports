@@ -1,0 +1,6 @@
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\bin\Debug\MoneyLoverPC.Business.dll.config
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\bin\Debug\MoneyLoverPC.Business.dll
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\bin\Debug\MoneyLoverPC.Business.pdb
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\obj\Debug\ResolveAssemblyReference.cache
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\obj\Debug\MoneyLoverPC.Business.dll
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPC.Business\obj\Debug\MoneyLoverPC.Business.pdb

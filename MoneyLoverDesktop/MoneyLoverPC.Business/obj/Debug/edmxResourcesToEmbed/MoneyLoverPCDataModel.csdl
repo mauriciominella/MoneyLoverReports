@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MoneyLoverPCDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="MoneyLoverPCDataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="transactionsSet" EntityType="MoneyLoverPCDataModel.transactions" />
+    <EntitySet Name="categoriesSet" EntityType="MoneyLoverPCDataModel.categories" />
+    <AssociationSet Name="categorytransaction" Association="MoneyLoverPCDataModel.categorytransaction">
+      <End Role="category" EntitySet="categoriesSet" />
+      <End Role="transaction" EntitySet="transactionsSet" />
+    </AssociationSet>
+    <EntitySet Name="usersSet" EntityType="MoneyLoverPCDataModel.users" />
+    <AssociationSet Name="userstransactions" Association="MoneyLoverPCDataModel.userstransactions">
+      <End Role="users" EntitySet="usersSet" />
+      <End Role="transactions" EntitySet="transactionsSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="true" />
+    <Property Type="Decimal" Name="amount" Nullable="false" />
+    <Property Type="Int32" Name="type" Nullable="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" />
+    <Property Type="DateTime" Name="displayed_date" Nullable="false" />
+    <Property Type="Int64" Name="cat_id" Nullable="false" />
+    <Property Type="String" Name="with_person" Nullable="true" />
+    <Property Type="DateTime" Name="remind_date" Nullable="true" />
+    <Property Type="Int32" Name="remind_num" Nullable="false" DefaultValue="0" />
+    <Property Type="String" Name="note" Nullable="true" />
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="Int64" Name="user_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="String" Name="icon" Nullable="false" />
+    <Property Type="Int32" Name="type" Nullable="false" DefaultValue="0" />
+    <Property Type="Int32" Name="group_id" Nullable="false" />
+    <Property Type="Int32" Name="user_id" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <Association Name="categorytransaction">
+    <End Type="MoneyLoverPCDataModel.categories" Role="category" Multiplicity="1" />
+    <End Type="MoneyLoverPCDataModel.transactions" Role="transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="String" Name="icon" Nullable="false" />
+  </EntityType>
+  <Association Name="userstransactions">
+    <End Type="MoneyLoverPCDataModel.users" Role="users" Multiplicity="1" />
+    <End Type="MoneyLoverPCDataModel.transactions" Role="transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

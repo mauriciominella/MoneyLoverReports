@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoneyLoverPcModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MoneyLoverPcModelStoreContainer">
+    <EntitySet Name="budgets" EntityType="MoneyLoverPcModel.Store.budgets" store:Type="Tables" />
+    <EntitySet Name="categories" EntityType="MoneyLoverPcModel.Store.categories" store:Type="Tables" />
+    <EntitySet Name="transactions" EntityType="MoneyLoverPcModel.Store.transactions" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="MoneyLoverPcModel.Store.users" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="budgets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="amount" Type="money" />
+    <Property Name="start_date" Type="datetime" />
+    <Property Name="end_date" Type="datetime" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="cat_id" Type="bigint" />
+    <Property Name="group_id" Type="bigint" />
+    <Property Name="time_mode" Type="int" />
+    <Property Name="repeat_status" Type="int" />
+    <Property Name="warning_percent" Type="float" />
+    <Property Name="notification_status" Type="int" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" />
+    <Property Name="icon" Type="nvarchar" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" />
+    <Property Name="amount" Type="money" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="displayed_date" Type="datetime" Nullable="false" />
+    <Property Name="cat_id" Type="bigint" Nullable="false" />
+    <Property Name="with_person" Type="nvarchar" />
+    <Property Name="remind_date" Type="datetime" />
+    <Property Name="remind_num" Type="int" Nullable="false" />
+    <Property Name="note" Type="nvarchar" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" />
+    <Property Name="icon" Type="nvarchar" Nullable="false" />
+  </EntityType>
+</Schema>

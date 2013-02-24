@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MoneyLoverPCDataModelStoreContainer" CdmEntityContainer="MoneyLoverPCDataModelContainer">
+    <EntitySetMapping Name="transactionsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MoneyLoverPCDataModel.transactions)">
+        <MappingFragment StoreEntitySet="transactionsSet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="displayed_date" ColumnName="displayed_date" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="with_person" ColumnName="with_person" />
+          <ScalarProperty Name="remind_date" ColumnName="remind_date" />
+          <ScalarProperty Name="remind_num" ColumnName="remind_num" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoriesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MoneyLoverPCDataModel.categories)">
+        <MappingFragment StoreEntitySet="categoriesSet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MoneyLoverPCDataModel.users)">
+        <MappingFragment StoreEntitySet="usersSet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

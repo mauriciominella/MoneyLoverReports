@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoneyLoverPCDataModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MoneyLoverPCDataModelStoreContainer">
+    <EntitySet Name="transactionsSet" EntityType="MoneyLoverPCDataModel.Store.transactionsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="categoriesSet" EntityType="MoneyLoverPCDataModel.Store.categoriesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usersSet" EntityType="MoneyLoverPCDataModel.Store.usersSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="categorytransaction" Association="MoneyLoverPCDataModel.Store.categorytransaction">
+      <End Role="category" EntitySet="categoriesSet" />
+      <End Role="transaction" EntitySet="transactionsSet" />
+    </AssociationSet>
+    <AssociationSet Name="userstransactions" Association="MoneyLoverPCDataModel.Store.userstransactions">
+      <End Role="users" EntitySet="usersSet" />
+      <End Role="transactions" EntitySet="transactionsSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="transactionsSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="true" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="displayed_date" Type="datetime" Nullable="false" />
+    <Property Name="cat_id" Type="bigint" Nullable="false" />
+    <Property Name="with_person" Type="nvarchar" Nullable="true" />
+    <Property Name="remind_date" Type="datetime" Nullable="true" />
+    <Property Name="remind_num" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="note" Type="nvarchar" Nullable="true" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categoriesSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" />
+    <Property Name="icon" Type="nvarchar" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="usersSet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" />
+    <Property Name="icon" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <Association Name="categorytransaction">
+    <End Role="category" Type="MoneyLoverPCDataModel.Store.categoriesSet" Multiplicity="1" />
+    <End Role="transaction" Type="MoneyLoverPCDataModel.Store.transactionsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userstransactions">
+    <End Role="users" Type="MoneyLoverPCDataModel.Store.usersSet" Multiplicity="1" />
+    <End Role="transactions" Type="MoneyLoverPCDataModel.Store.transactionsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

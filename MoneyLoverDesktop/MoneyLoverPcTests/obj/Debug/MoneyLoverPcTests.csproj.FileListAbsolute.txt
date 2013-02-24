@@ -1,0 +1,10 @@
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\MoneyLoverPc.sdf
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\MoneyLoverPcTests.dll
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\MoneyLoverPcTests.pdb
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\MoneyLoverDesktop.exe
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\MoneyLoverDesktop.pdb
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\obj\Debug\MoneyLoverPcTests.dll
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\obj\Debug\MoneyLoverPcTests.pdb
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\EPPlus.dll
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\bin\Debug\EPPlus.xml
+D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverPcTests\obj\Debug\MoneyLoverPcTests.csprojResolveAssemblyReference.cache

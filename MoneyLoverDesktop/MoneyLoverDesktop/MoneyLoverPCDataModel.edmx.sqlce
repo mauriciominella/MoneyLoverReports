@@ -1,0 +1,61 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 04/07/2012 11:01:56
+-- Generated from EDMX file: D:\Pessoal\Finanças\Controle de Gastos\MoneyLoverPC\MoneyLoverDesktop\MoneyLoverDesktop\MoneyLoverPCDataModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [transactions];
+GO
+    DROP TABLE [categories];
+GO
+    DROP TABLE [users];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'transactionsSet'
+CREATE TABLE [transactions] (
+    [id] bigint IDENTITY(1,1) NOT NULL,
+    [name] nvarchar(4000)  NULL,
+    [amount] decimal(18,0)  NOT NULL,
+    [type] int  NOT NULL,
+    [created_date] datetime  NOT NULL,
+    [displayed_date] datetime  NOT NULL,
+    [cat_id] bigint  NOT NULL,
+    [with_person] nvarchar(4000)  NULL,
+    [remind_date] datetime  NULL,
+    [remind_num] int  NOT NULL,
+    [note] nvarchar(4000)  NULL,
+    [status] int  NOT NULL,
+    [user_id] bigint  NOT NULL
+);
+GO
+
+-- Creating table 'categoriesSet'
+CREATE TABLE [categories] (
+    [id] bigint IDENTITY(1,1) NOT NULL,
+    [name] nvarchar(4000)  NOT NULL,
+    [icon] nvarchar(4000)  NOT NULL,
+    [type] int  NOT NULL,
+    [group_id] int  NOT NULL,
+    [user_id] int  NOT NULL
+);
+GO
+
+-- Creating table 'usersSet'
+CREATE TABLE [users] (
+    [id] bigint IDENTITY(1,1) NOT NULL,
+    [name] nvarchar(4000)  NOT NULL,
+    [icon] nvarchar(4000)  NOT NULL
+);
+GO
