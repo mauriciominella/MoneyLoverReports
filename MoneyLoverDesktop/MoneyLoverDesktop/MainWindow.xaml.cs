@@ -27,6 +27,14 @@ namespace MoneyLoverDesktop
         public DateTime selectedBeginDate { get; set; }
         public DateTime selectedEndDate { get; set; }
 
+        public MoneyLoverPcEntities db
+        {
+            get
+            {
+                return (MoneyLoverPcEntities)App.Current.Properties["db"];
+            }
+        }
+
         #endregion
 
 
@@ -67,7 +75,6 @@ namespace MoneyLoverDesktop
             this.Title = "Processing...";
 
             UpdateSelectedDate();
-            LoadSourceData();
             GenerateAndOpenXLSReport();
 
             this.Title = "Done!";
@@ -95,6 +102,26 @@ namespace MoneyLoverDesktop
         private void cbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            transactions newTrans = new transactions();
+            newTrans.amount = decimal.Parse(tbxAmount.Text);
+            newTrans.name = tbxDescription.Text;
+            newTrans.displayed_date = dtRecord.SelectedDate.Value;
+            newTrans.type = 2;
+            newTrans.cat_id = db.categories.Find(c => c.name.Equals(tbxCategory.Text)).id;
+
+            db.transactions.Add(newTrans);
+            MessageBox.Show("New transaction Added!");
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateSelectedDate();
+            LoadSourceData();
+            this.Title = String.Format("{0} transactions loaded!", db.transactions.Count.ToString());
         }
     }
 }
